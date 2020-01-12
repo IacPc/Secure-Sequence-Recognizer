@@ -19,11 +19,8 @@ architecture SSR_beh of SecureSequenceRec is
 	
 	signal signal_star_in (2 downto 0);
 	signal signal_star_out (2 downto 0);
-
 	signal lut_in(2 downto 0);
-	signal lut_out(7 downto 0);
-
-	signal signal_ok_in,signal_ok_in; -- 0 when a wrong number is inserted
+	signal lut_out(2 downto 0); 
 
 	component DFF is
 	generic(N_bit : integer); 
@@ -54,7 +51,7 @@ architecture SSR_beh of SecureSequenceRec is
 
 	lut_seq : LUT --contains the sequence numbers
 	generic map(N_ADD => 3, M_DATA => 8)
-	port map(lut_in,lut_out);
+	--port map(k_DT,sin_out);
 
 	process(clock,reset,signal_star_in,signal_star_out)
 
