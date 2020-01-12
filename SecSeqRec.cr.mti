@@ -1,1 +1,93 @@
+C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Iacopo\Desktop\Electronics_project\counter.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Counter
+-- Compiling architecture Counter_beh of Counter
 
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Iacopo\Desktop\Electronics_project\dff.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity DFF
+-- Compiling architecture DFF_beh of DFF
+
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity SecureSequenceRec
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(18): near "architecture": syntax error
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(21): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(23): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(24): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(26): near ";": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(28): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(29): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(31): near "(": (vcom-1576) expecting ':'.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(41): near "DFF": (vcom-1576) expecting COMPONENT.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(57): Component instantiation statements are not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(58): (vcom-1027) Number of positional association elements (4) exceeds number of formals (0).
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(58): Component instantiation statements are allowed only in architecture bodies.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(61): Component instantiation statements are not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(62): (vcom-1027) Number of positional association elements (4) exceeds number of formals (0).
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(62): Component instantiation statements are allowed only in architecture bodies.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(65): Component instantiation statements are not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(66): (vcom-1027) Number of positional association elements (4) exceeds number of formals (0).
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(66): Component instantiation statements are allowed only in architecture bodies.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(69): Component instantiation statements are not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(70): (vcom-1027) Number of positional association elements (4) exceeds number of formals (0).
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(70): Component instantiation statements are allowed only in architecture bodies.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(73): Component instantiation statements are not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(74): (vcom-1136) Unknown identifier "lut_in".
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(74): (vcom-1136) Unknown identifier "lut_out".
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(74): Signal assignments not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(74): Signal assignments not allowed in entity statement part.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(74): Component instantiation statements are allowed only in architecture bodies.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(76): (vcom-1136) Unknown identifier "signal_star_in".
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(76): Expression is not a signal.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(76): (vcom-1136) Unknown identifier "signal_star_out".
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(76): Expression is not a signal.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(81): near "end": (vcom-1576) expecting BEGIN.
+
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(43): Component declaration 'LUT' not allowed in this region.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(83): Labels do not match: 'SecureSequenceRec' and 'SSR_beh'.
+** Error: C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd(83): VHDL Compiler exiting
+
+} {7.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0 24.0 26.0 27.0 30.0 31.0 34.0 35.0 38.0 39.0 42.0 43.0 44.0 45.0 49.0 50.0 52.0 53.0 55.0 56.0 59.0} {}} C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity LUT
+-- Compiling architecture LUT_beh of LUT
+
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity RPCA
+-- Compiling architecture RPCA_beh of RPCA
+
+} {} {}}
