@@ -4,10 +4,10 @@ use IEEE.std_logic_1164.all;
 entity DFF is
 	generic(N_bit_reg : integer); 
 	port (
-			clk: in std_logic;
-			reset: in std_logic;
-			D: in std_logic_vector(N_bit_reg-1 downto 0);
-			Q: out std_logic_vector(N_bit_reg-1 downto 0) 
+			clk: 	in std_logic;
+			reset: 	in std_logic;
+			D: 	in std_logic_vector(N_bit_reg-1 downto 0);
+			Q: 	out std_logic_vector(N_bit_reg-1 downto 0) 
 		 );
 end DFF;
 architecture DFF_beh of DFF is

@@ -40,8 +40,7 @@ architecture Counter_beh of Counter_mod is
 	 SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (1 DOWNTO 0) ;
 	 CONSTANT SMEM: STATE_TYPE  :="00"; -- when in this state the counter just keep the exit constant
 	 CONSTANT SINC: STATE_TYPE  :="01"; -- when in this state the counter increment the exit
-	 CONSTANT SINC: STATE_TYPE  :="11"; -- when in this state the counter reset the exit
-
+	
 	 signal	s_RPCA	  :std_logic_vector(N_bitc-1 downto 0);
 	 signal retro_add :std_logic_vector(N_bitc-1 downto 0);
 	 signal dff_in	  :std_logic_vector(N_bitc-1 downto 0);
@@ -86,8 +85,7 @@ begin
 				dff_in<=retro_add;				
 			when SINC=>
 				dff_in<=s_RPCA;	
-			when SZERO
-				dff_in<= (others => '0');
+				
 			when others => null;		
 			end case;
 		end if;
