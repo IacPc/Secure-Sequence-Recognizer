@@ -40,7 +40,7 @@ architecture Counter_beh of Counter_mod is
 	 SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (1 DOWNTO 0) ;
 	 CONSTANT SMEM: STATE_TYPE  :="00"; -- when in this state the counter just keep the exit constant
 	 CONSTANT SINC: STATE_TYPE  :="01"; -- when in this state the counter increment the exit
-	 CONSTANT SINC: STATE_TYPE  :="11"; -- when in this state the counter reset the exit
+	 CONSTANT SRES: STATE_TYPE  :="11"; -- when in this state the counter reset the exit
 
 	 signal	s_RPCA	  :std_logic_vector(N_bitc-1 downto 0);
 	 signal retro_add :std_logic_vector(N_bitc-1 downto 0);
@@ -54,7 +54,7 @@ architecture Counter_beh of Counter_mod is
 			b	: in  std_logic_vector(Nbit-1 downto 0);
 			cin	: in  std_logic;
 			s	: out std_logic_vector(Nbit-1 downto 0);
-			cout: out std_logic
+			cout	: out std_logic
 		);
 	 end component;
 	 
@@ -63,8 +63,8 @@ architecture Counter_beh of Counter_mod is
 		port (
 			clk: in std_logic;
 			reset: in std_logic;
-			D: in std_logic_vector(2 downto 0);
-			Q: out std_logic_vector(2 downto 0) 
+			D: in std_logic_vector(N_bit-1 downto 0);
+			Q: out std_logic_vector(N_bit-1 downto 0) 
 		);
 	 end component;
 	 
@@ -76,18 +76,18 @@ begin
 	dff1	: DFF
 	generic map(N_bit => N_bitc)
 	port map(count_clk,count_reset,dff_in,retro_add);
-	counting_proc: process(count_clk,count_reset)
+	counting_proc: process(enabler_in,s_RPCA)
 	begin
 		if(count_reset='0') then
 			dff_in<= (others => '0'); 
-		elsif(rising_edge(count_clk)) then
+		else
 			case(enabler_in) is
 			when SMEM=>
 				dff_in<=retro_add;				
 			when SINC=>
 				dff_in<=s_RPCA;	
-			when SZERO
-				dff_in<= (others => '0');
+			when SRES=>
+				dff_in <= (others => '0');
 			when others => null;		
 			end case;
 		end if;

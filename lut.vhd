@@ -27,9 +27,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity LUT is  
-	generic(
-		M_DATA : integer
-	);
+	
 	port(
 		 address : in STD_LOGIC_VECTOR(2 downto 0);
 		 data : out STD_LOGIC_VECTOR(7 downto 0)
@@ -42,11 +40,12 @@ architecture LUT_beh of LUT is
 	
    		type lut_t is array(0 to 4) of std_logic_vector(7 downto 0) ;
 	    
-		constant lut : lut_t := ("00000000",
-					 "00000001",
-					 "00000010",
-					 "00000011",
-					 "00000100");
+		constant lut : lut_t := ("00100100",
+					 "00010011",
+					 "00111000",
+					 "01100101",
+					 "01001001"
+					 );
 
 		 	
 		begin
