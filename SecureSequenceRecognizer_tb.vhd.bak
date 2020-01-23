@@ -48,7 +48,7 @@ architecture SSR_tb_beh of SSR_tb is
 		f_tb<='1';
 		wait for T_CLK;  
 		f_tb<='0';
-		in_tb<="10010011" --in_tb<="00010011"; -- The second is correct
+		in_tb<="10010011";--in_tb<="00010011"; -- The second is correct
 		wait for T_CLK;
 		in_tb<="00111000";
 		wait for T_CLK;

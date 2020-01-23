@@ -22,16 +22,16 @@ architecture SSR_beh of SecureSequenceRec is
 	CONSTANT SRES: STATE_TYPE_COUNT  :="11"; -- when in this state the counter reset the exit
 	
 
-	SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (3 DOWNTO 0) ;
+	SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (2 DOWNTO 0) ;
 	-- constants to drive the state
-	CONSTANT SINIT: STATE_TYPE:="0000";
-	CONSTANT S0: STATE_TYPE:="0001";
-	CONSTANT S1: STATE_TYPE:="0010";
-	CONSTANT S2: STATE_TYPE:="0011";
-	CONSTANT S3: STATE_TYPE:="0100";
-	CONSTANT S4: STATE_TYPE:="0101";
-	CONSTANT S5: STATE_TYPE:="0110";
-	CONSTANT SBLOCK: STATE_TYPE:="0111";
+	CONSTANT SINIT: STATE_TYPE:="000";
+	CONSTANT S0: STATE_TYPE:="001";
+	CONSTANT S1: STATE_TYPE:="010";
+	CONSTANT S2: STATE_TYPE:="011";
+	CONSTANT S3: STATE_TYPE:="100";
+	CONSTANT S4: STATE_TYPE:="101";
+	CONSTANT S5: STATE_TYPE:="110";
+	CONSTANT SBLOCK: STATE_TYPE:="111";
 	
 
 	signal signal_star_in  : STATE_TYPE;
@@ -43,9 +43,9 @@ architecture SSR_beh of SecureSequenceRec is
 	signal signal_ok_in  : std_logic_vector(0 downto 0);
 	signal signal_ok_out : std_logic_vector(0 downto 0);-- 0 when a wrong number is inserted
 
-	signal count_wr_in  : std_logic_vector(1 downto 0); -- count the wrong sequences
-	signal count_wr_out : std_logic_vector(2 downto 0);
-
+	signal count_wr_in  : STATE_TYPE_COUNT; -- count the wrong sequences
+	signal count_wr_out : std_logic_vector(1 downto 0);
+	
 	signal counter_state_in : STATE_TYPE_COUNT;
 
 	component DFF is
@@ -79,20 +79,20 @@ architecture SSR_beh of SecureSequenceRec is
 
 	begin
 
-	SEQNUMBER: counter_mod --Drives the lut
-	generic map(N_bitc => 3)
-	port map(clock,reset,counter_state_in,lut_in);
-
 	OK: DFF --1 if the seq number is correct,0 otherwise
 	generic map(N_bit => 1)
 	port map(clock,reset,signal_ok_in,signal_ok_out);
 
 	STAR: DFF --status register
-	generic map(N_bit => 4)
+	generic map(N_bit => 3)
 	port map(clock,reset,signal_star_in,signal_star_out);
 	
+	SEQNUMBER: counter_mod --Drives the lut
+	generic map(N_bitc => 3)
+	port map(clock,reset,counter_state_in,lut_in);
+
 	COUNT_WRONG: counter_mod --Keeps track of the wrong sequences
-	generic map(N_bitc =>3 )
+	generic map(N_bitc =>2)
 	port map(clock,reset,count_wr_in,count_wr_out);
 	
 	lut_seq : LUT --contains the sequence numbers
@@ -121,15 +121,20 @@ architecture SSR_beh of SecureSequenceRec is
 						counter_state_in<=SMEM;
 					end if;
 					signal_ok_in<="0";
-					count_wr_in<=SMEM;
+					count_wr_in<=SRES;
 		   		when S0 =>
 					count_wr_in<=SMEM;
 					unlock<='0';
 					warning<='0';
-					if(count_wr_out="101") then
-						signal_star_in<=S1;
+					if(count_wr_out="11") then
+						signal_star_in<=SBLOCK;
 					else
-						signal_star_in<=S1;
+						if(first='1' ) then
+							signal_star_in<=S1;
+						else
+							signal_star_in<=S0;
+						end if;
+					
 					end if;
 					counter_state_in<= SINC; 
 					if(num_in = lut_out ) then --Checking Sequence number 0
@@ -208,24 +213,24 @@ architecture SSR_beh of SecureSequenceRec is
 						end if;
 
 						signal_star_in<=S5;
-						counter_state_in<= SRES;
 						
 					end if;	
+					counter_state_in<= SRES;
 				when S5 =>
 					unlock<= signal_ok_out(0);
 					warning <= not signal_ok_out(0);
 					if(signal_ok_out(0)='1') then
-						count_wr_in<=SMEM;
+						count_wr_in<=SRES;
 					else
 						count_wr_in<=SINC;
 					end if;
 					counter_state_in<= SRES;
 					signal_star_in<=S0;
-					
+					signal_ok_in<="0";
 				when SBLOCK=>
 					unlock<='0';
 					warning<='1';
-					signal_star_in<=SBLOCK;
+					signal_star_in<=SBLOCK; --Blocking the SSR until a reset event happens
 					counter_state_in<= SRES;
 					count_wr_in<=SRES;
 				when others => null; -- Specifying that nothing happens in the other cases 

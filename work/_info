@@ -48,7 +48,7 @@ R10
 R11
 R12
 Ecounter_mod
-Z13 w1579343845
+Z13 w1579714030
 R1
 R2
 R3
@@ -60,9 +60,9 @@ V8QTDc>T_c5@NVgZS^jWX]1
 !s100 oUzFToejW=1Oe[X3`aC882
 R6
 32
-Z16 !s110 1579363454
+Z16 !s110 1579716151
 !i10b 1
-Z17 !s108 1579363453.000000
+Z17 !s108 1579716151.000000
 Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd|
 Z19 !s107 C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd|
 !i113 1
@@ -72,10 +72,10 @@ Acounter_beh
 R1
 R2
 DEx4 work 11 counter_mod 0 22 8QTDc>T_c5@NVgZS^jWX]1
-l71
+l72
 L38
-VDLPW?ZF2B8?I_li^`=m<e2
-!s100 JbSOH:5M70Odki^gm[Efo2
+V_5<Xh`]YL^9OPchk>H:dW0
+!s100 D>2[FVTW;<zjB]1lc0gFR1
 R6
 32
 R16
@@ -99,11 +99,11 @@ VS9`_Y3kbK<<eDV8[;N46L1
 !s100 YnAOVL?o=]C5EKSeh_W5_0
 R6
 32
-Z23 !s110 1579363453
+Z23 !s110 1579716150
 !i10b 1
-R17
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd|
-Z25 !s107 C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd|
+Z24 !s108 1579716150.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd|
+Z26 !s107 C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd|
 !i113 1
 R11
 R12
@@ -119,20 +119,20 @@ R6
 32
 R23
 !i10b 1
-R17
 R24
 R25
+R26
 !i113 1
 R11
 R12
 Elut
-Z26 w1579361918
-Z27 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z27 w1579361918
+Z28 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R1
 R2
 R3
-Z28 8C:\Users\Iacopo\Desktop\Electronics_project\lut.vhd
-Z29 FC:\Users\Iacopo\Desktop\Electronics_project\lut.vhd
+Z29 8C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd
+Z30 FC:/Users/Iacopo/Desktop/Electronics_project/lut.vhd
 l0
 L29
 V=lEKJL5oGoj3Cd[IJFXSQ2
@@ -141,14 +141,14 @@ R6
 32
 R23
 !i10b 1
-R17
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Iacopo\Desktop\Electronics_project\lut.vhd|
-Z31 !s107 C:\Users\Iacopo\Desktop\Electronics_project\lut.vhd|
+R24
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd|
+Z32 !s107 C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd|
 !i113 1
 R11
 R12
 Alut_beh
-R27
+R28
 R1
 R2
 DEx4 work 3 lut 0 22 =lEKJL5oGoj3Cd[IJFXSQ2
@@ -160,30 +160,30 @@ R6
 32
 R23
 !i10b 1
-R17
-R30
+R24
 R31
+R32
 !i113 1
 R11
 R12
 Erpca
-Z32 w1579023654
+Z33 w1579455247
 R1
 R2
 R3
-Z33 8C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd
-Z34 FC:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd
+Z34 8C:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd
+Z35 FC:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd
 l0
 L28
 V1IE<Bj0dGJ`zk:F;<cSCQ2
 !s100 m0j4e[_E]N4EgF0mDc9mP3
 R6
 32
-R23
+R16
 !i10b 1
-R17
-Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd|
-Z36 !s107 C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd|
+R24
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd|
+Z37 !s107 C:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd|
 !i113 1
 R11
 R12
@@ -197,22 +197,22 @@ V^o0=LACgh`0jZ@>JEhc^Z2
 !s100 _l9>KKXOI6<jCSX0Q?PK63
 R6
 32
-R23
+R16
 !i10b 1
-R17
-R35
+R24
 R36
+R37
 !i113 1
 R11
 R12
 Esecuresequencerec
-Z37 w1579363451
-R27
+Z38 w1579716116
+R28
 R1
 R2
 R3
-Z38 8C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
-Z39 FC:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
+Z39 8C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
+Z40 FC:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
 l0
 L5
 V:L_TZ8Cl;O7b[03BPelf]3
@@ -221,33 +221,33 @@ R6
 32
 R16
 !i10b 1
-Z40 !s108 1579363454.000000
+R17
 Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd|
 Z42 !s107 C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd|
 !i113 1
 R11
 R12
 Assr_beh
-R27
+R28
 R1
 R2
 DEx4 work 17 securesequencerec 0 22 :L_TZ8Cl;O7b[03BPelf]3
 l80
 L18
-VBX=>9K7[gCG;oN[n7[2]M3
-!s100 ?h:T]T[98]F^kPmJ1_JjI3
+VkY5FGFb^__dAd8^Vn]=4h0
+!s100 `F?JC>fG4ScaK5OY^@mhm2
 R6
 32
 R16
 !i10b 1
-R40
+R17
 R41
 R42
 !i113 1
 R11
 R12
 Essr_tb
-Z43 w1579362746
+Z43 w1579714144
 R1
 R2
 R3
@@ -259,29 +259,29 @@ V8F1eAbiKlg`Y^ia8kXAen1
 !s100 Q?`YA_fQeB3WRUiUBUUiC2
 R6
 32
-R16
+Z46 !s110 1579716152
 !i10b 1
-R40
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer_tb.vhd|
-Z47 !s107 C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer_tb.vhd|
+Z47 !s108 1579716152.000000
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer_tb.vhd|
+Z49 !s107 C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer_tb.vhd|
 !i113 1
 R11
 R12
 Assr_tb_beh
 R1
 R2
-Z48 DEx4 work 6 ssr_tb 0 22 8F1eAbiKlg`Y^ia8kXAen1
+Z50 DEx4 work 6 ssr_tb 0 22 8F1eAbiKlg`Y^ia8kXAen1
 l35
 L10
-Z49 VF0ZSn9g5QRLbX;Al<TZo70
-Z50 !s100 L3fFXfajP[[::TFQ[DzG:2
+Z51 VIH[Qa9B1SMzmRKaD2K[?m2
+Z52 !s100 aEbNGG2_j?i2JdPK^V<UN2
 R6
 32
-R16
-!i10b 1
-R40
 R46
+!i10b 1
 R47
+R48
+R49
 !i113 1
 R11
 R12

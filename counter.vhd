@@ -45,6 +45,7 @@ architecture Counter_beh of Counter_mod is
 	 signal	s_RPCA	  :std_logic_vector(N_bitc-1 downto 0);
 	 signal retro_add :std_logic_vector(N_bitc-1 downto 0);
 	 signal dff_in	  :std_logic_vector(N_bitc-1 downto 0);
+	 signal add_in	  :std_logic_vector(N_bitc-1 downto 0);
 
 	 signal cout_RPCA :std_logic;
 	 component RPCA is
@@ -69,17 +70,19 @@ architecture Counter_beh of Counter_mod is
 	 end component;
 	 
 begin
+	
 	rpca1	: RPCA
 	generic map(Nbit => N_bitc)
-	port map("001",retro_add,'0',s_RPCA,cout_RPCA);	
+	port map(add_in,retro_add,'0',s_RPCA,cout_RPCA);	
 	
 	dff1	: DFF
 	generic map(N_bit => N_bitc)
 	port map(count_clk,count_reset,dff_in,retro_add);
 	counting_proc: process(enabler_in,s_RPCA)
 	begin
+		add_in<= (N_bitc-1 downto 1 => '0',others =>'1');
 		if(count_reset='0') then
-			dff_in<= (others => '0'); 
+			dff_in<= (others => '0');
 		else
 			case(enabler_in) is
 			when SMEM=>

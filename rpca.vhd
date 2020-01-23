@@ -40,7 +40,7 @@ architecture RPCA_beh of RPCA is
 begin
 	addition_proc: process(a,b,cin)
 	variable c: std_logic;
-   
+	
 	begin
 		c:=cin;
 		for i in 0 to Nbit-1 loop

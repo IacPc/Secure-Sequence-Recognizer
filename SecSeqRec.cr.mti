@@ -1,10 +1,21 @@
-C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd
+C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/SecureSequenceRecognizer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SecureSequenceRec
+-- Compiling architecture SSR_beh of SecureSequenceRec
+
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity Counter_mod
 -- Compiling architecture Counter_beh of Counter_mod
+** Warning: C:/Users/Iacopo/Desktop/Electronics_project/counter.vhd(83): (vcom-1073) Non-locally static choice (association #1, choice #1) is allowed only if it is the only choice of the only association.
+
 
 } {} {}} C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/dff.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -22,7 +33,7 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity SSR_tb
 -- Compiling architecture SSR_tb_beh of SSR_tb
 
-} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Iacopo\Desktop\Electronics_project\lut.vhd}
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/lut.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -31,7 +42,7 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity LUT
 -- Compiling architecture LUT_beh of LUT
 
-} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd
+} {} {}} C:/Users/Iacopo/Desktop/Electronics_project/rpca.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Iacopo\Desktop\Electronics_project\rpca.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
