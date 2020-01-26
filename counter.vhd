@@ -78,7 +78,7 @@ begin
 	dff1	: DFF
 	generic map(N_bit => N_bitc)
 	port map(count_clk,count_reset,dff_in,retro_add);
-	counting_proc: process(enabler_in,s_RPCA)
+	counting_proc: process(enabler_in,s_RPCA,count_reset,retro_add)
 	begin
 		add_in<= (N_bitc-1 downto 1 => '0',others =>'1');
 		if(count_reset='0') then
@@ -91,7 +91,8 @@ begin
 				dff_in<=s_RPCA;	
 			when SRES=>
 				dff_in <= (others => '0');
-			when others => null;		
+			when others =>
+			    dff_in <= (others => '0');		
 			end case;
 		end if;
 		D_out<=retro_add;

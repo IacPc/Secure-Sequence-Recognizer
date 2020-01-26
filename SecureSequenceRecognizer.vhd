@@ -110,7 +110,7 @@ architecture SSR_beh of SecureSequenceRec is
 			count_wr_in<=SRES;
 		else
 			case(signal_star_out) is   
-				when SINIT=>
+				when SINIT=> -- the SSR  in this state waits for the first sequence number
 					unlock<='0';
 					warning<='0';
 					if(first='1' ) then
@@ -131,13 +131,12 @@ architecture SSR_beh of SecureSequenceRec is
 					else
 						signal_star_in<=S1;
 					end if;
-					counter_state_in<= SINC; 
 					if(num_in = lut_out ) then --Checking Sequence number 0
 						signal_ok_in<="1";
 					else
-						signal_ok_in<=signal_ok_in;
+						signal_ok_in<=signal_ok_out;
 					end if;
-					
+					counter_state_in<= SINC;					
 				when S1 =>
 					unlock<='0';
 					warning<='0'; 
@@ -147,16 +146,13 @@ architecture SSR_beh of SecureSequenceRec is
 						signal_star_in<=SBLOCK;
 					else	
 						if(num_in = lut_out)then --Checking Sequence number 1
-							signal_ok_in<=signal_ok_in;
+							signal_ok_in<=signal_ok_out;
 						else
 							signal_ok_in<="0";
 						end if;
-
 						signal_star_in<=S2;
-						counter_state_in<= SINC;
-						
 					end if;
-					
+					counter_state_in<= SINC;
 				when S2=>
 					unlock<='0';
 					warning<='0'; 
@@ -166,15 +162,13 @@ architecture SSR_beh of SecureSequenceRec is
 						signal_star_in<=SBLOCK;
 					else	
 						if(num_in = lut_out)then --Checking Sequence number 2
-							signal_ok_in<=signal_ok_in;
+							signal_ok_in<=signal_ok_out;
 						else
 							signal_ok_in<="0";
 						end if;
-
 						signal_star_in<=S3;
-						counter_state_in<= SINC;
-						
 					end if;
+					counter_state_in<= SINC;
 				when S3=>
 					unlock<='0';
 					warning<='0'; 
@@ -184,15 +178,14 @@ architecture SSR_beh of SecureSequenceRec is
 						signal_star_in<=SBLOCK;
 					else	
 						if(num_in = lut_out)then --Checking Sequence number 3
-							signal_ok_in<=signal_ok_in;
+							signal_ok_in<=signal_ok_out;
 						else
 							signal_ok_in<="0";
 						end if;
 
 						signal_star_in<=S4;
-						counter_state_in<= SMEM;
-						
 					end if;	
+					counter_state_in<= SMEM;
 				when S4=>
 					unlock<='0';
 					warning<='0'; 
@@ -202,13 +195,11 @@ architecture SSR_beh of SecureSequenceRec is
 						signal_star_in<=SBLOCK;
 					else	
 						if(num_in = lut_out)then --Checking Sequence number 4
-							signal_ok_in<=signal_ok_in;
+							signal_ok_in<=signal_ok_out;
 						else
 							signal_ok_in<="0";
 						end if;
-
 						signal_star_in<=S5;
-						
 					end if;	
 					counter_state_in<= SRES;
 				when S5 =>
@@ -220,7 +211,7 @@ architecture SSR_beh of SecureSequenceRec is
 						count_wr_in<=SINC;
 					end if;
 					counter_state_in<= SRES;
-					signal_star_in<=S0;
+					signal_star_in<=SINIT;
 					signal_ok_in<="0";
 				when SBLOCK=>
 					unlock<='0';
@@ -228,7 +219,16 @@ architecture SSR_beh of SecureSequenceRec is
 					signal_star_in<=SBLOCK; --Blocking the SSR until a reset event happens
 					counter_state_in<= SRES;
 					count_wr_in<=SRES;
-				when others => null; -- Specifying that nothing happens in the other cases 
+					signal_ok_in<="0";
+
+				when others =>  -- avoiding unexpected behaviour due to bad driving of the inner state
+				    unlock<='0';
+					warning<='1';
+					signal_star_in<=SBLOCK; --Blocking the SSR until a reset event happens
+					counter_state_in<= SRES;
+					count_wr_in<=SRES;
+					signal_ok_in<="0";
+
 		  	end case;
 		end if;
 	end process;

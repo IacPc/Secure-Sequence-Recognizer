@@ -10,7 +10,7 @@ end SSR_tb;
 architecture SSR_tb_beh of SSR_tb is
 
 	constant T_CLK   : time := 10 ns; -- Clock period
-	constant T_RESET : time := 24 ns; -- Period before the reset deassertion
+	constant T_RESET : time := 21 ns; -- Period before the reset deassertion
 	constant T_FIRST : time := 13 ns; -- Period before the reset deassertion	
 
 	signal clk_tb  	: std_logic := '0'; -- clock signal, intialized to '0' 
@@ -48,7 +48,7 @@ architecture SSR_tb_beh of SSR_tb is
 		f_tb<='1';
 		wait for T_CLK;  
 		f_tb<='0';
-		in_tb<="00010011";--in_tb<="10010011"; -- The second is wrong
+		in_tb<="00010011"; --in_tb<="10010011"; -- The second is wrong
 		wait for T_CLK;
 		in_tb<="00111000";
 		wait for T_CLK;
