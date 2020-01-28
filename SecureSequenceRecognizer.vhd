@@ -17,9 +17,9 @@ end SecureSequenceRec;
 
 architecture SSR_beh of SecureSequenceRec is
 	SUBTYPE STATE_TYPE_COUNT is STD_LOGIC_VECTOR (1 DOWNTO 0) ;
-	CONSTANT SMEM: STATE_TYPE_COUNT  :="00"; -- when in this state the counter just keep the exit constant
-	CONSTANT SINC: STATE_TYPE_COUNT  :="01"; -- when in this state the counter increment the exit
-	CONSTANT SRES: STATE_TYPE_COUNT  :="11"; -- when in this state the counter reset the exit
+	CONSTANT SMEM: STATE_TYPE_COUNT  :="00"; -- when in this state the counter just keeps the exit constant
+	CONSTANT SINC: STATE_TYPE_COUNT  :="01"; -- when in this state the counter increments the exit
+	CONSTANT SRES: STATE_TYPE_COUNT  :="11"; -- when in this state the counter keeps the exit equals to zero
 	
 
 	SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (2 DOWNTO 0) ;
@@ -113,22 +113,15 @@ architecture SSR_beh of SecureSequenceRec is
 				when SINIT=> -- the SSR  in this state waits for the first sequence number
 					unlock<='0';
 					
-					if(count_wr_out="11") then
-						signal_star_in<=SBLOCK;
-						counter_state_in<=SRES;
-						count_wr_in<=SRES;
-						warning<='1';
-					else
-						if(first='1' ) then
+					if(first='1' ) then
 							signal_star_in<=S0;	
 							counter_state_in<=SINC;	--start counting				
 						else
 							signal_star_in<=SINIT;
 							counter_state_in<=SMEM;
-						end if;
-						warning<='0';
-						count_wr_in<=SMEM;
 					end if;
+					warning<='0';
+					count_wr_in<=SMEM;
 					signal_ok_in<="0";	
 		   		when S0 =>
 					count_wr_in<=SMEM;
@@ -147,7 +140,7 @@ architecture SSR_beh of SecureSequenceRec is
 					unlock<='0';
 					warning<='0'; 
 					count_wr_in<=SMEM;
-					if(first='1')then
+					if(first='1')then --From now on it is an error if first goes to '1' and the device is being blocked
 						signal_ok_in<="0";
 						signal_star_in<=SBLOCK;
 					else	
@@ -217,7 +210,7 @@ architecture SSR_beh of SecureSequenceRec is
 						count_wr_in<=SINC;
 					end if;
 					counter_state_in<= SRES;
-					if(first='1') then
+					if(first='1' or (signal_ok_out(0)='0' and count_wr_out="10" )) then
 						signal_star_in<=SBLOCK;
 					else
 						signal_star_in<=SINIT;
