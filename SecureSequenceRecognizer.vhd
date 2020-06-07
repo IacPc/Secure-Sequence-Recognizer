@@ -7,6 +7,7 @@ port (
 	clock:	in std_logic; --- clock signal	
 	reset:	in std_logic; -- reset signal active low
 	first:	in std_logic; -- start sampling signal
+
 	num_in:	in std_logic_vector(7 downto 0); --input sequence number
 	
 	unlock:	 out std_logic; -- signal of success
@@ -17,9 +18,9 @@ end SecureSequenceRec;
 
 architecture SSR_beh of SecureSequenceRec is
 	SUBTYPE STATE_TYPE_COUNT is STD_LOGIC_VECTOR (1 DOWNTO 0) ;
-	CONSTANT SMEM: STATE_TYPE_COUNT  :="00"; -- when in this state the counter just keeps the exit constant
-	CONSTANT SINC: STATE_TYPE_COUNT  :="01"; -- when in this state the counter increments the exit
-	CONSTANT SRES: STATE_TYPE_COUNT  :="11"; -- when in this state the counter keeps the exit equals to zero
+	CONSTANT SMEM: STATE_TYPE_COUNT  :="00"; -- when in this state the counter just keeps the output constant
+	CONSTANT SINC: STATE_TYPE_COUNT  :="01"; -- when in this state the counter increments the output
+	CONSTANT SRES: STATE_TYPE_COUNT  :="11"; -- when in this state the counter keeps the output equals to zero
 	
 
 	SUBTYPE STATE_TYPE is STD_LOGIC_VECTOR (2 DOWNTO 0) ;
@@ -58,8 +59,7 @@ architecture SSR_beh of SecureSequenceRec is
 		);
 	end component;
 
-	component LUT is  
-	
+	component LUT is  	
 		port(
 			address : in STD_LOGIC_VECTOR(2 downto 0);
 			data : out STD_LOGIC_VECTOR(7 downto 0)
@@ -140,7 +140,7 @@ architecture SSR_beh of SecureSequenceRec is
 					unlock<='0';
 					warning<='0'; 
 					count_wr_in<=SMEM;
-					if(first='1')then --From now on it is an error if first goes to '1' and the device is being blocked
+					if(first='1')then -- From now on it is an error if first goes to '1' and the device is being blocked
 						signal_ok_in<="0";
 						signal_star_in<=SBLOCK;
 					else	
@@ -224,7 +224,7 @@ architecture SSR_beh of SecureSequenceRec is
 					count_wr_in<=SRES;
 					signal_ok_in<="0";
 
-				when others =>  -- avoiding unexpected behaviour due to bad driving of the inner state
+				when others =>  -- avoiding unexpected behaviour due to malfunctioning 
 				    unlock<='0';
 					warning<='1';
 					signal_star_in<=SBLOCK; --Blocking the SSR until a reset event happens
